@@ -7,7 +7,9 @@ public class Transaction
     [Key]
     public int TransactionId { get; set; }
     public decimal Amount { get; set; }
+    [MaxLength(5)]
     public string Direction { get; set; } = null!;
+    [MaxLength(10)]
     public string State { get; set; } = null!;
     public DateTime Date { get; set; }
     

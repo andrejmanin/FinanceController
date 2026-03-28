@@ -6,8 +6,8 @@ public class Category
 {
     [Key]
     public int CategoryId { get; set; }
-    [Required]
-    public string Name { get; set; } = null!;
+    [Required][MaxLength(25)]
+    public string CategoryName { get; set; } = null!;
     [Required]
     public int Necessity { get; set; }
     

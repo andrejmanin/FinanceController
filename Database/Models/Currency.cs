@@ -7,7 +7,10 @@ public class Currency
 {
     [Key]
     public int CurrencyId { get; set; }
+    
+    [MaxLength(5)]
     public string CurrencyName { get; set; } = null!;
+    [MaxLength(5)]
     public string DependentName { get; set; } = null!;
     public decimal BuyPrice { get; set; }
     public decimal SellPrice { get; set; }

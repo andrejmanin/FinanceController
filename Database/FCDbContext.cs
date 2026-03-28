@@ -26,11 +26,19 @@ public class FCDbContext : DbContext
         modelBuilder.Entity<User>()
             .HasKey(u => u.UserId);
         
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
+        
         modelBuilder.Entity<Wallet>()
             .HasKey(w => w.WalletId);
         
         modelBuilder.Entity<Currency>()
             .HasKey(c => c.CurrencyId);
+        
+        modelBuilder.Entity<Currency>()
+            .HasIndex(c => c.CurrencyName)
+            .IsUnique();
         
         modelBuilder.Entity<CurrencyRecord>()
             .HasKey(c => c.CurrencyRecordId);
@@ -38,8 +46,16 @@ public class FCDbContext : DbContext
         modelBuilder.Entity<Asset>()
             .HasKey(a => a.AssetId);
         
+        modelBuilder.Entity<Asset>()
+            .HasIndex(a => a.AssetName)
+            .IsUnique();
+        
         modelBuilder.Entity<Destination>()
             .HasKey(a => a.DestinationId);
+        
+        modelBuilder.Entity<Destination>()
+            .HasIndex(a => a.DestinationName)
+            .IsUnique();
         
         modelBuilder.Entity<Transaction>()
             .HasKey(t => t.TransactionId);
@@ -52,6 +68,10 @@ public class FCDbContext : DbContext
         
         modelBuilder.Entity<Category>()
             .HasKey(c => c.CategoryId);
+        
+        modelBuilder.Entity<Category>()
+            .HasIndex(c => c.CategoryName)
+            .IsUnique();
         
         modelBuilder.Entity<Limit>()
             .HasKey(l => l.AssetId);
